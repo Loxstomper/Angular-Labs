@@ -1,0 +1,41 @@
+<style>
+
+form {
+    margin: 0 auto;
+    width: 250px;
+}
+
+button[type=submit] {
+    margin: 0 auto;
+    width: 260px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+}
+
+button[type=submit]:hover {
+    color: #444d56;
+}
+
+input[type=email], input[type=password]{
+    margin: 0 auto;
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    background-color: #444d56;
+    
+}
+
+
+</style>
+
+
+<form (submit)="loginUser($event)">
+    <input [(ngModel)]="username" type="email" placeholder="Username" id="username" name="username">
+    <br>
+    <input [(ngModel)]="password" type="password" placeholder="password" id="password" name="password">
+    <br>
+    <button type="submit">Submit</button>
+</form>
+    
