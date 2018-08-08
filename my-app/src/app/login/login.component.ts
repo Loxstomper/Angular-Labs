@@ -15,20 +15,37 @@ export class LoginComponent implements OnInit {
   constructor(private router:Router, private form:FormsModule) { }
 
   ngOnInit() {
+    console.log("Dom is ready");
+    if(typeof(Storage) !== "undefined"){
+    console.log("Storage ready");
+    console.log("GETTING DATA");
+    console.log(localStorage.getItem("user_id"));
+    }
+
+
+    
   }
 
   loginUser(event)
   {
     event.preventDefault();
 
-    if (this.username == "abc" && this.password == "123")
+    localStorage.setItem("user_id", "1");
+    localStorage.setItem("user_name", this.username);
+    localStorage.setItem("birth_date", "20/07/1969");
+    localStorage.setItem("user_age", "49");
+
+    // no matter what login you will go the account page
+    this.route.navigateByUrl('/account');
+
+    /*if (this.username == "abc" && this.password == "123")
     {
         this.router.navigateByUrl('/account');
     }
     else
     {
         alert("Invalid login");
-    }
+        }*/
 
   }
 
