@@ -17,26 +17,24 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     console.log("Dom is ready");
     if(typeof(Storage) !== "undefined"){
-    console.log("Storage ready");
-    console.log("GETTING DATA");
-    console.log(localStorage.getItem("user_id"));
+
     }
-
-
-    
   }
 
   loginUser(event)
   {
     event.preventDefault();
 
-    localStorage.setItem("user_id", "1");
-    localStorage.setItem("user_name", this.username);
-    localStorage.setItem("birth_date", "20/07/1969");
-    localStorage.setItem("user_age", "49");
+    let user = {"user_id": 1, "username": this.username, "birth_date": "20/07/1969", "age": 49};
+    sessionStorage.setItem('user', JSON.stringify(user));
+
+    //localStorage.setItem("user_id", "1");
+    //localStorage.setItem("user_name", this.username);
+    //localStorage.setItem("birth_date", "20/07/1969");
+    //localStorage.setItem("user_age", "49");
 
     // no matter what login you will go the account page
-    this.route.navigateByUrl('/account');
+    this.router.navigateByUrl('/account');
 
     /*if (this.username == "abc" && this.password == "123")
     {
@@ -45,8 +43,6 @@ export class LoginComponent implements OnInit {
     else
     {
         alert("Invalid login");
-        }*/
-
+    }*/
   }
-
 }
