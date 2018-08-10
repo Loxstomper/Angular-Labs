@@ -26,10 +26,7 @@ input[type=email], input[type=password]{
     background-color: #444d56;
     
 }
-
-
 </style>
-
 
 <form (submit)="loginUser($event)">
     <input [(ngModel)]="username" type="email" placeholder="Username" id="username" name="username">
@@ -37,5 +34,4 @@ input[type=email], input[type=password]{
     <input [(ngModel)]="password" type="password" placeholder="password" id="password" name="password">
     <br>
     <button type="submit">Submit</button>
-</form>
-    
+</form> 
