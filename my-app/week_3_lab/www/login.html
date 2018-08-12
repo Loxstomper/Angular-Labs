@@ -1,0 +1,52 @@
+<head>
+     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+     <script>
+            $(document).ready(function(){
+            // click on button submit
+            $("#submit").on('click', function(e){
+                e.preventDefault();
+                // send ajax
+                $.ajax({
+                    url: '/login', // url where to submit the request
+                    type : "POST", // type of action POST || GET
+                    dataType : 'text', // data type
+                    data : $("#form").serialize(), // post data || get data
+                    success : function(result) {
+                        // check the content of the resolut - JSON for
+                        console.log(result);
+                        if (result == '{"ok":"true"}')
+                        {
+                            window.location.replace("http://localhost:3000/account");
+                        }
+                        else
+                        {
+                            $("#error").text("Incorrect Login");
+                        }
+
+                    },
+                    error: function(xhr, resp, text) {
+
+                        console.log(xhr, resp, text);
+                    }
+                })
+            });
+        });
+     </script>
+
+</head>
+
+
+<h1> Login </h1>
+
+<form id="form" action="/login" method="post" name="form">
+    Username: <input type="text" name="username">
+    <br>
+    Password: <input type="password" name="password">
+    <br>
+    <input id="submit" type="submit" value="Login">
+</form>
+
+<p id="error"></p>
+
+
+    
